@@ -11,15 +11,15 @@ public class Billetage {
             }
         }
         System.out.println("Result for: " + somme);
-        int[] decompose = decompose(somme);
+        TenFiveTwo decompose = decompose(somme);
         if (decompose != null) {
-            System.out.println(decompose[0] + "-" + decompose[1] + "-" + decompose[2]);
+            System.out.println(decompose);
         } else {
             System.out.println("Impossible");
         }
     }
 
-    private static int[] decompose(int montant) {
+    private static TenFiveTwo decompose(int montant) {
         int ten, five = 0, two = 0;
         int max10 = montant / 10, max5, max2;
         boolean found = false;
@@ -57,7 +57,7 @@ public class Billetage {
         }
 
         if (found) {
-            return new int[]{ten, five, two};
+            return new TenFiveTwo(ten, five, two);
         } else {
             return null;
         }
@@ -66,4 +66,5 @@ public class Billetage {
     private static int reste(int somme, int diviseur, int quotient) {
         return somme - (quotient * diviseur);
     }
+
 }
