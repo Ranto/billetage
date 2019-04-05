@@ -2,7 +2,15 @@ public class Billetage {
 
     public static void main(String[] args) {
         int somme = 27;
-        System.out.println("RESULTAT DECOMPOSITION: " + somme);
+        if (args.length > 0) {
+            try {
+                somme = Integer.parseInt(args[0]);
+                System.out.println(">>>>>: " + args[0]);
+            } catch (NumberFormatException e) {
+                System.out.println("Not a number.");
+            }
+        }
+        System.out.println("Result for: " + somme);
         int[] decompose = decompose(somme);
         if (decompose != null) {
             System.out.println(decompose[0] + "-" + decompose[1] + "-" + decompose[2]);
